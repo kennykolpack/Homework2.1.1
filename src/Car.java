@@ -138,4 +138,29 @@ public class Car {
     void specifications() {
         System.out.println("Марка: " + getBrand() + ". Модель: " + getModel() + ". Объем двигателя: " + getEngineVolume() + " л. Цвет кузова: " + getColor() + ". Год выпуска: " + getProductionYear() + ". Страна-производитель: " + getProductionCountry() + ". Трансмиссия: " + getTransmission() + ". Тип кузова: " + getBodyType() + ". Регистрационный номер: " + getRegistrationNumber() + ". Количество мест: " + getSeatsNumber() + ". Зимняя резина: " + isWinterTires());
     }
+    public static class Key {
+        private boolean RemoteEngineStart;
+        private boolean KeylessEntry;
+
+        public Key(boolean remoteEngineStart, boolean keylessEntry) {
+            RemoteEngineStart = remoteEngineStart;
+            KeylessEntry = keylessEntry;
+        }
+
+        public boolean isRemoteEngineStart() {
+            return RemoteEngineStart;
+        }
+
+        public void setRemoteEngineStart(boolean remoteEngineStart) {
+            RemoteEngineStart = remoteEngineStart;
+        }
+
+        public boolean isKeylessEntry() {
+            return KeylessEntry;
+        }
+
+        public void setKeylessEntry(boolean keylessEntry) {
+            KeylessEntry = keylessEntry;
+        }
+    }
 }

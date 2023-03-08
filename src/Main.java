@@ -1,4 +1,3 @@
-//Домашнее задание
 public class Main {
     public static void main(String[] args) {
         Car lada= new Car("Lada", "Granta", 1.7f, "Желтый", 2015, "Россия", "механическая", "седан", "в306уа18",5, false);
