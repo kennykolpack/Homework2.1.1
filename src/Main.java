@@ -1,14 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Car lada= new Car("Lada", "Granta", 1.7f, "Желтый", 2015, "Россия", "механическая", "седан", "в306уа18",5, false);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0f, "Черный", 2020, "Германия", "автоматическая", "седан", "о607кт18",5, false);
-        Car bmw = new Car("BMW", "Z8", 3.0f, "Черный", 2021, "Германия", "автоматическая", "седан", "о123кт18",5, false);
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4f, "Красный", 2018, "Южная Корея", "автоматическая", "кроссовер", "о567кт18",7, false);
-        Car hyundai = new Car("Hyundai", "Avante", 1.6f, "Оранжевый", 2016, "Южная Корея", "автоматическая", "хетчбек", "о789кт18",5, false);
+        Car lada = new Car("Lada", "Granta", "Желтый", 2015, 160, 1.7f, "Россия", "Механическая", "седан","в306уа18", 5, false);
+        Bus mercedes = new Bus("Mercedes", "Benz Tourismo 15 RHD", "Белый", 2021, 140, 6, 12, 6);
         lada.specifications();
-        audi.specifications();
-        bmw.specifications();
-        kia.specifications();
-        hyundai.specifications();
+        mercedes.specifications();
     }
 }

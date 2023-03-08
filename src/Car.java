@@ -1,12 +1,8 @@
 //Домашнее задание
 import java.util.Objects;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private float engineVolume;
-    private String color;
-    private final int productionYear;
     private final String productionCountry;
     private String transmission;
     private final String bodyType;
@@ -14,24 +10,9 @@ public class Car {
     private final int seatsNumber;
     private boolean winterTires;
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
 
     public float getEngineVolume() {
         return engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
     }
 
     public String getProductionCountry() {
@@ -62,10 +43,6 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public void setTransmission(String transmission) {
         this.transmission = transmission;
     }
@@ -78,20 +55,12 @@ public class Car {
         this.winterTires = winterTires;
     }
 
-
-    public Car(String brand, String model, float engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int seatsNumber, boolean winterTires) {
-        this.brand = Objects.requireNonNullElse(brand, "default");
-        this.model = Objects.requireNonNullElse(model, "default");
+    public Car(String brand, String model, String color, int productionYear, int maxSpeed, float engineVolume, String productionCountry, String transmission, String bodyType, String registrationNumber, int seatsNumber, boolean winterTires) {
+        super(brand, model, color, productionYear, maxSpeed);
         if(engineVolume >= 0) {
             this.engineVolume = engineVolume;
         } else {
             this.engineVolume = 1.5f;
-        }
-        this.color = Objects.requireNonNullElse(color, "Белый");
-        if(productionYear >= 0) {
-            this.productionYear = productionYear;
-        } else {
-            this.productionYear = 2000;
         }
         this.productionCountry = Objects.requireNonNullElse(productionCountry, "default");
         this.transmission = Objects.requireNonNullElse(transmission, "default");
@@ -101,8 +70,8 @@ public class Car {
             this.seatsNumber = seatsNumber;
         } else {
             this.seatsNumber = 5;
+            this.winterTires = winterTires;
         }
-        this.winterTires = winterTires;
     }
 
     @Override
@@ -126,13 +95,14 @@ public class Car {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Car car = (Car) o;
-        return Float.compare(car.engineVolume, engineVolume) == 0 && productionYear == car.productionYear && registrationNumber == car.registrationNumber && seatsNumber == car.seatsNumber && winterTires == car.winterTires && Objects.equals(brand, car.brand) && Objects.equals(model, car.model) && Objects.equals(color, car.color) && Objects.equals(productionCountry, car.productionCountry) && Objects.equals(transmission, car.transmission) && Objects.equals(bodyType, car.bodyType);
+        return Float.compare(car.engineVolume, engineVolume) == 0 && seatsNumber == car.seatsNumber && winterTires == car.winterTires && Objects.equals(productionCountry, car.productionCountry) && Objects.equals(transmission, car.transmission) && Objects.equals(bodyType, car.bodyType) && Objects.equals(registrationNumber, car.registrationNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, color, productionYear, productionCountry, transmission, bodyType, registrationNumber, seatsNumber, winterTires);
+        return Objects.hash(super.hashCode(), engineVolume, productionCountry, transmission, bodyType, registrationNumber, seatsNumber, winterTires);
     }
 
     void specifications() {
