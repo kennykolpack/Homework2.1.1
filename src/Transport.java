@@ -1,11 +1,21 @@
 import java.util.Objects;
 
-public abstract class Transport {
+public abstract class Transport <T extends Driver> implements Competing {
     private final String brand;
     private final String model;
-    private String color;
-    private final int productionYear;
-    private int maxSpeed;
+    private final float engineVolume;
+    private T driver;
+
+    public Transport(String brand, String model, float engineVolume, T driver) {
+        this.brand = Objects.requireNonNullElse(brand, "default");
+        this.model = Objects.requireNonNullElse(model, "default");
+        if(engineVolume >= 0) {
+            this.engineVolume = engineVolume;
+        } else {
+            this.engineVolume = 1.5f;
+        }
+        setDriver(driver);
+    }
 
     public String getBrand() {
         return brand;
@@ -15,48 +25,42 @@ public abstract class Transport {
         return model;
     }
 
-    public String getColor() {
-        return color;
+    public float getEngineVolume() {
+        return engineVolume;
     }
 
-    public void setColor(String color) {
-        this.color = Objects.requireNonNullElse(color, "Белый");
+    public T getDriver() {
+        return driver;
     }
 
-    public int getProductionYear() {
-        return productionYear;
+    public void setDriver(T driver) {
+        this.driver = driver;
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
+    public abstract void start();
 
-    public void setMaxSpeed(int maxSpeed) {
-        if(maxSpeed != 0) {
-            this.maxSpeed = maxSpeed;
-        } else  {
-            maxSpeed = 150;
-        }
-    }
-
-    public Transport(String brand, String model, String color, int productionYear, int maxSpeed) {
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.maxSpeed = maxSpeed;
-    }
+    public abstract void stop();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return productionYear == transport.productionYear && maxSpeed == transport.maxSpeed && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(color, transport.color);
+        return Float.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, color, productionYear, maxSpeed);
+        return Objects.hash(brand, model, engineVolume);
+    }
+
+    @Override
+    public String toString() {
+        return "Transport{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", driver=" + driver +
+                '}';
     }
 }
