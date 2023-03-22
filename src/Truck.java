@@ -41,6 +41,10 @@ public class Truck extends Transport <DriverCatC> {
         System.out.println("Данных по транспортному средству недостаточно");
     }
 
+    public void passDiagnostics() {
+        System.out.println("Грузовой автомобиль проходит диагностику");
+    }
+
     @Override
     public void bestLapTime(float bestLapTime) {
         System.out.println("Лучшее время круга " + getBrand() + ": " + bestLapTime);

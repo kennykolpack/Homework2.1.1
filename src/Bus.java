@@ -43,6 +43,10 @@ public class Bus extends Transport <DriverCatD> {
         System.out.println("Данных по транспортному средству недостаточно");
     }
 
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не могут" + getBrand());
+    }
+
     @Override
     public void bestLapTime(float bestLapTime) {
         System.out.println("Лучшее время круга " + getBrand() + ": " + bestLapTime);

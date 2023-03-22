@@ -17,4 +17,12 @@ public class DriverCatD extends Driver{
     public void refuel() {
         System.out.println("Водитель категории D " + getName() + " заправляет авто.");
     }
+    public void driversLicenseType() {
+        try {
+            isDriverLicense();
+        } catch (LicenseTypeException e) {
+            System.out.println("Произошла ошибка");
+            System.out.println("Необходимо указать тип прав!");
+        }
+    }
 }

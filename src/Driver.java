@@ -19,7 +19,7 @@ public abstract class Driver {
         return name;
     }
 
-    public boolean isDriverLicense() {
+    public boolean isDriverLicense() throws LicenseTypeException {
         return driverLicense;
     }
 
@@ -44,6 +44,8 @@ public abstract class Driver {
     public abstract void stop();
 
     public abstract void refuel();
+
+    public abstract void driversLicenseType() throws LicenseTypeException;
 
     @Override
     public boolean equals(Object o) {
