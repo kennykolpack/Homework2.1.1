@@ -3,6 +3,33 @@ import java.util.Objects;
 
 public class Car extends Transport <DriverCatB> {
 
+    public enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        STATION_WAGON("Универсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+        public final String bodyType;
+
+        BodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return "Тип кузова:" + getBodyType();
+        }
+
+    }
+
     public Car(String brand, String model, float engineVolume, DriverCatB driverCatB) {
         super(brand, model, engineVolume, driverCatB);
     }
@@ -20,6 +47,10 @@ public class Car extends Transport <DriverCatB> {
     @Override
     public void pitStop() {
         System.out.println("Легковой автомобиль поехал на пит-стоп");
+    }
+
+    public void printType() {
+        System.out.println("Данных по транспортному средству недостаточно");
     }
 
     @Override

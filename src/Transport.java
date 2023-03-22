@@ -41,6 +41,8 @@ public abstract class Transport <T extends Driver> implements Competing {
 
     public abstract void stop();
 
+    public abstract void printType();
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

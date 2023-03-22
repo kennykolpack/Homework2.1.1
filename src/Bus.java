@@ -1,5 +1,25 @@
 public class Bus extends Transport <DriverCatD> {
 
+    public enum Capacity {
+        ESPECIALLY_SMALL ("до 10 мест"),
+        SMALL ("до 25 мест"),
+        AVERAGE ("40–50 мест"),
+        BIG ("60–80 мест"),
+        EXTRA_LARGE ("100–120 мест");
+        public final String capacity;
+
+        Capacity (String capacity){
+            this.capacity = capacity;
+        }
+        public String getCapacity() {
+            return capacity;
+        }
+        @Override
+        public String toString() {
+            return "Вместимость: " + getCapacity();
+        }
+    }
+
     public Bus(String brand, String model, float engineVolume, DriverCatD driverCatD) {
         super(brand, model, engineVolume, driverCatD);
     }
@@ -17,6 +37,10 @@ public class Bus extends Transport <DriverCatD> {
     @Override
     public void pitStop() {
         System.out.println("Автобус поехал на пит-стоп");
+    }
+
+    public void printType() {
+        System.out.println("Данных по транспортному средству недостаточно");
     }
 
     @Override
