@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class Transport <T extends Driver> implements Competing {
@@ -5,6 +6,11 @@ public abstract class Transport <T extends Driver> implements Competing {
     private final String model;
     private final float engineVolume;
     private T driver;
+    private ArrayList<Mechanic> mechanic;
+
+    public ArrayList<Mechanic> getMechanic() {
+        return new ArrayList<>(mechanic);
+    }
 
     public Transport(String brand, String model, float engineVolume, T driver) {
         this.brand = Objects.requireNonNullElse(brand, "default");

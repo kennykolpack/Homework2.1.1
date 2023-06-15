@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+
 public class Bus extends Transport <DriverCatD> {
+
+    private ArrayList<Transport> busList;
 
     public enum Capacity {
         ESPECIALLY_SMALL ("до 10 мест"),
@@ -22,6 +26,11 @@ public class Bus extends Transport <DriverCatD> {
 
     public Bus(String brand, String model, float engineVolume, DriverCatD driverCatD) {
         super(brand, model, engineVolume, driverCatD);
+        busList = new ArrayList<>();
+    }
+
+    public ArrayList<Transport> getBusList() {
+        return busList;
     }
 
     @Override

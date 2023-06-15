@@ -1,5 +1,8 @@
+import java.util.ArrayList;
 
 public class Truck extends Transport <DriverCatC> {
+
+    private ArrayList<Transport> truckList;
 
     public enum LoadCapacity {
         N1 ("с полной массой до 3,5 тонн"),
@@ -20,6 +23,11 @@ public class Truck extends Transport <DriverCatC> {
 
     public Truck(String brand, String model, float engineVolume, DriverCatC driverCatC) {
         super(brand, model, engineVolume, driverCatC);
+        truckList = new ArrayList<>();
+    }
+
+    public ArrayList<Transport> getTruckList() {
+        return truckList;
     }
 
     @Override

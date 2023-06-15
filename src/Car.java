@@ -1,7 +1,10 @@
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Car extends Transport <DriverCatB> {
+
+private ArrayList<Transport> carList;
 
     public enum BodyType {
         SEDAN("Седан"),
@@ -32,6 +35,11 @@ public class Car extends Transport <DriverCatB> {
 
     public Car(String brand, String model, float engineVolume, DriverCatB driverCatB) {
         super(brand, model, engineVolume, driverCatB);
+        carList = new ArrayList<>();
+    }
+
+    public ArrayList<Transport> getCarList() {
+        return carList;
     }
 
     @Override

@@ -37,6 +37,7 @@ public class Main {
         info(isuzu);
         info(volvo);
     }
+
     public static void info(Transport transport) {
         System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде.");
     }
