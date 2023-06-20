@@ -1,9 +1,13 @@
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class Driver {
     private final String name;
     private boolean driverLicense;
     private int experience;
+
+    private Set<Driver> drivers;
 
     public Driver(String name, boolean driverLicense, int experience) {
         this.name = Objects.requireNonNullElse(name, "default");
@@ -13,6 +17,11 @@ public abstract class Driver {
         } else {
             this.experience = Math.abs(experience);
         }
+        drivers = new HashSet<>();
+    }
+
+    public Set<Driver> getDrivers() {
+        return drivers;
     }
 
     public String getName() {

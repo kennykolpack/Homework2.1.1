@@ -36,6 +36,9 @@ public class Main {
         info(man);
         info(isuzu);
         info(volvo);
+        vasily.getDrivers().add(oleg);
+        vasily.getDrivers().add(victor);
+        vasily.getDrivers().add(oleg);
     }
 
     public static void info(Transport transport) {

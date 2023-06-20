@@ -1,4 +1,5 @@
 public class DriverCatB extends Driver {
+
     public DriverCatB(String name, boolean driverLicense, int experience) {
         super(name, driverLicense, experience);
     }
