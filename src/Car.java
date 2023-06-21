@@ -1,48 +1,77 @@
-public class Car {
-    String brand;
-    String model;
-    float engineVolume;
-    String color;
-    int productionYear;
-    String productionCountry;
 
-    Car() {
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Car extends Transport <DriverCatB> {
+
+private ArrayList<Transport> carList;
+
+    public enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        STATION_WAGON("Универсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+        public final String bodyType;
+
+        BodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        public String getBodyType() {
+            return bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return "Тип кузова:" + getBodyType();
+        }
 
     }
 
-    Car(String brand, String model, float engineVolume, String color, int productionYear, String productionCountry) {
-        if(brand != null) {
-            this.brand = brand;
-        } else {
-            this.brand = "default";
-        }
-        if(model != null) {
-            this.model = model;
-        } else {
-            this.model = "default";
-        }
-        if(engineVolume >= 0) {
-            this.engineVolume = engineVolume;
-        } else {
-            this.engineVolume = 1.5f;
-        }
-        if(color != null) {
-            this.color = color;
-        } else {
-            this.color = "Белый";
-        }
-        if(productionYear >= 0) {
-            this.productionYear = productionYear;
-        } else {
-            this.productionYear = 2000;
-        }
-        if(productionCountry != null) {
-            this.productionCountry = productionCountry;
-        } else {
-            this.productionCountry = "default";
-        }
+    public Car(String brand, String model, float engineVolume, DriverCatB driverCatB) {
+        super(brand, model, engineVolume, driverCatB);
+        carList = new ArrayList<>();
     }
-    void specifications() {
-        System.out.println("Марка: " + brand + ". Модель: " + model + ". Объем двигателя: " + engineVolume + " л. Цвет кузова: " + color + ". Год выпуска: " + productionYear + ". Страна-производитель: " + productionCountry + ".");
+
+    public ArrayList<Transport> getCarList() {
+        return carList;
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Легковой автомобиль начинает движение");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Легковой автомобиль заканчивает движение");
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("Легковой автомобиль поехал на пит-стоп");
+    }
+
+    public void printType() {
+        System.out.println("Данных по транспортному средству недостаточно");
+    }
+
+    public void passDiagnostics() {
+        System.out.println("Легковой автомобиль проходит диагностику");
+    }
+
+    @Override
+    public void bestLapTime(float bestLapTime) {
+        System.out.println("Лучшее время круга " + getBrand() + ": " + bestLapTime);
+    }
+
+    @Override
+    public void maxSpeed(int maxSpeed) {
+        System.out.println("Максимальная скорость " + getBrand() + ": " + maxSpeed);
     }
 }

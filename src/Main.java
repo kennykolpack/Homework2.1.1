@@ -1,56 +1,47 @@
 public class Main {
     public static void main(String[] args) {
-        // Домашнее задание 1
-        Car lada = new Car();
-        lada.brand = "Lada";
-        lada.model = "Granda";
-        lada.engineVolume = 1.7f;
-        lada.color = "Желтый";
-        lada.productionYear = 2015;
-        lada.productionCountry = "Россия";
-        Car audi = new Car();
-        audi.brand = "Audi";
-        audi.model = "A8 50 L TDI quattro";
-        audi.engineVolume = 3.0f;
-        audi.color = "Черный";
-        audi.productionYear = 2020;
-        audi.productionCountry = "Германия";
-        Car bmw = new Car();
-        bmw.brand = "BMW";
-        bmw.model = "Z8";
-        bmw.engineVolume = 3.0f;
-        bmw.color = "Черный";
-        bmw.productionYear = 2021;
-        bmw.productionCountry = "Германия";
-        Car kia = new Car();
-        kia.brand = "Kia";
-        kia.model = "Sportage 4-го поколения";
-        kia.engineVolume = 2.4f;
-        kia.color = "Красный";
-        kia.productionYear = 2018;
-        kia.productionCountry = "Южная Корея";
-        Car hyundai = new Car();
-        hyundai.brand = "Hyundai";
-        hyundai.model = "Avante";
-        hyundai.engineVolume = 1.6f;
-        hyundai.color = "Оранжевый";
-        hyundai.productionYear = 2016;
-        hyundai.productionCountry = "Южная Корея";
-        lada.specifications();
-        audi.specifications();
-        bmw.specifications();
-        kia.specifications();
-        hyundai.specifications();
-        // Домашнее задание 2
-        Car lada2 = new Car("Lada", "Granta", 1.7f, "Желтый", 2015, "Россия");
-        Car audi2 = new Car("Audi", "A8 50 L TDI quattro", 3.0f, "Черный", 2020, "Германия");
-        Car bmw2 = new Car("BMW", "Z8", 3.0f, "Черный", 2021, "Германия");
-        Car kia2 = new Car("Kia", "Sportage 4-го поколения", 2.4f, "Красный", 2018, "Южная Корея");
-        Car hyundai2 = new Car("Hyundai", "Avante", 1.6f, "Оранжевый", 2016, "Южная Корея");
-        lada2.specifications();
-        audi2.specifications();
-        bmw2.specifications();
-        kia2.specifications();
-        hyundai2.specifications();
+        DriverCatB vasily = new DriverCatB("Василий Васильевич Васильев", true, 10);
+        DriverCatB oleg = new DriverCatB("Олег Олегович Олегов", true, 6);
+        DriverCatB victor = new DriverCatB("Виктор Викторович Викторов", true, 5);
+        DriverCatB vitaly = new DriverCatB("Виталий Витальевич Витальев", true, 2);
+        DriverCatC sergey = new DriverCatC("Сергей Сергеевич Сергеев", true, 11);
+        DriverCatC dmitry = new DriverCatC("Дмитрий Дмитриевич Дмитриев", true, 8);
+        DriverCatC ilya = new DriverCatC("Илья Ильич Ильин", true, 7);
+        DriverCatC pavel = new DriverCatC("Павел Павлович Павлов", true, 6);
+        DriverCatD maxim = new DriverCatD("Максим Максимович Максимов", true, 8);
+        DriverCatD petr = new DriverCatD("Петр Петрович Петров", true, 8);
+        DriverCatD evgeny = new DriverCatD("Евгений Евгеньевич Евгеньев", true, 12);
+        DriverCatD andrey = new DriverCatD("Андрей Андреевич Андреев", true, 7);
+        Car lada = new Car("Lada", "Granta", 1.6f, vasily);
+        Car bmw = new Car("Bmw", "M8", 4.4f, oleg);
+        Car audi = new Car("Audi", "RS3", 2.5f, victor);
+        Car mercedes = new Car("Mercedes", "AMG GT 43", 3.0f, vitaly);
+        Bus hyundai = new Bus("Hyundai", "Aero Space D6AB-D", 17.8f, maxim);
+        Bus mercedesBenz = new Bus("Mercedes-Benz", "Travego M OM 457 LA", 12.0f, petr);
+        Bus higer = new Bus("Higer", "KLQ 6129 Q", 9.7f, evgeny);
+        Bus ikarus = new Bus("Ikarus", "256", 10.4f, andrey);
+        Truck kamaz = new Truck("КамАЗ", "6520", 11.8f, sergey);
+        Truck man = new Truck("MAN", "TGM 18.250", 6.8f, dmitry);
+        Truck isuzu = new Truck("Isuzu", "forward 12.0", 5.2f, ilya);
+        Truck volvo = new Truck("Volvo", "FE 320", 8.9f, pavel);
+        info(lada);
+        info(bmw);
+        info(audi);
+        info(mercedes);
+        info(hyundai);
+        info(mercedesBenz);
+        info(higer);
+        info(ikarus);
+        info(kamaz);
+        info(man);
+        info(isuzu);
+        info(volvo);
+        vasily.getDrivers().add(oleg);
+        vasily.getDrivers().add(victor);
+        vasily.getDrivers().add(oleg);
+    }
+
+    public static void info(Transport transport) {
+        System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде.");
     }
 }
