@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
         DriverCatB vasily = new DriverCatB("Василий Васильевич Васильев", true, 10);
@@ -39,6 +41,11 @@ public class Main {
         vasily.getDrivers().add(oleg);
         vasily.getDrivers().add(victor);
         vasily.getDrivers().add(oleg);
+        Mechanic mechanic = new Mechanic("Васильев А.Н.", "Компания");
+        HashMap<Transport, Mechanic> mechanics = new HashMap<>();
+        mechanics.put(mercedes, mechanic);
+        mechanics.put(mercedes, mechanic);
+        System.out.println(mechanics.get(mercedes));
     }
 
     public static void info(Transport transport) {
